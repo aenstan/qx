@@ -1,0 +1,5 @@
+# 万达电影获取cookie
+
+^https:\/\/user-api-prd-mx\.wandafilm\.com url script-request-header https://raw.githubusercontent.com/chavyleung/scripts/master/wanda/wanda.cookie.js
+
+hostname = user-api-prd-mx.wandafilm.com
