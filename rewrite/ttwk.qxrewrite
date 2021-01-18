@@ -1,0 +1,6 @@
+# 支付宝天天挖矿获取cookie
+
+^https:\/\/operation-api\.jimistore\.com\/* url script-request-body https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/ttwk/ttwk.js
+
+hostname = operation-api.jimistore.com
+
