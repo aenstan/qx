@@ -1,0 +1,5 @@
+# 时光相册获取cookie
+
+^https:\/\/api.everphoto.cn\/users\/self\/checkin\/v2 url script-request-header https://raw.githubusercontent.com/chavyleung/scripts/master/everphoto/everphoto.cookie.js
+
+hostname = api.everphoto.cn
