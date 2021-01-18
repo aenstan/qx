@@ -1,4 +1,4 @@
-# 网易云签到获取cookie(by chavyleung)
+# 网易云音乐获取cookie(by chavyleung)
 
 ^https:\/\/music.163.com\/weapi\/user\/level url script-request-body https://raw.githubusercontent.com/chavyleung/scripts/master/neteasemusic/quanx/neteasemusic.cookie.js
 
