@@ -1,0 +1,5 @@
+# 饿了么获取cookie
+
+^https:\/\/h5\.ele\.me\/restapi\/eus\/v\d\/current_user$ url script-request-header https://raw.githubusercontent.com/songyangzz/QuantumultX/master/elem/elemGetCookies.js
+
+hostname = h5.ele.me
