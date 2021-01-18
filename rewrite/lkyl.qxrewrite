@@ -1,0 +1,5 @@
+# 来客有礼获取cookie
+
+https:\/\/draw\.jdfcloud\.com\/\/api\/bean\/square\/silverBean\/task\/get\? url script-request-header https://raw.githubusercontent.com/Sunert/Scripts/master/Task/lkyl.js
+
+hostname = draw.jdfcloud.com
