@@ -1,0 +1,5 @@
+# Bilibili直播获取Cookie
+
+^https:\/\/(www|live)\.bilibili\.com\/?.? url script-request-header https://raw.githubusercontent.com/chavyleung/scripts/master/bilibili/bilibili.cookie.js
+
+hostname = *.bilibili.com
