@@ -1,0 +1,5 @@
+# 网易新闻获取cookie
+
+^https:\/\/(.*?)c\.m\.163\.com\/uc\/api\/sign\/v3\/commit url script-request-body https://raw.githubusercontent.com/chavyleung/scripts/master/neteasenews/neteasenews.cookie.js
+
+hostname = *.m.163.com
