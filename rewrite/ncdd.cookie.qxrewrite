@@ -1,0 +1,5 @@
+# 叮咚农场获取cookie
+
+https:\/\/maicai\.api\.ddxq\.mobi\/user\/checkLogin url script-request-header https://raw.githubusercontent.com/iepngs/Script/master/dingdong/index.js
+
+hostname = maicai.api.ddxq.mobi
