@@ -1,0 +1,5 @@
+# 叮咚买菜获取cookie
+
+^https:\/\/maicai.api.ddxq.mobi\/point\/home url script-request-header https://raw.githubusercontent.com/chavyleung/scripts/master/mcdd/mcdd.cookie.js
+
+hostname = maicai.api.ddxq.mobi
