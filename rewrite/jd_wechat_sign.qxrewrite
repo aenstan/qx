@@ -1,0 +1,5 @@
+# 京东微信获取cookie
+
+https:\/\/wq\.jd\.com\/bases\/jssdk\/GetWxJsApiSign url script-request-header https://raw.githubusercontent.com/shylocks/Loon/main/jd_wechat_sign.js
+
+hostname = wq.jd.com
