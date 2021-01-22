@@ -1,0 +1,4 @@
+#走财运
+https:\/\/step-money\.quanxiangweilai\.cn\/api\/step_count\/sync url script-request-body https://raw.githubusercontent.com/ZhiYi-N/Private-Script/master/Scripts/zcy.js
+
+hostname = step-money.quanxiangweilai.cn
