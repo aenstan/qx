@@ -1,44 +1,43 @@
 /*
  * @Author: shylocks https://github.com/shylocks
- * @Date: 2021-01-15 16:25:41
+ * @Date: 2021-01-17 16:25:41
  * @Last Modified by:   shylocks
- * @Last Modified time: 2021-01-16 18:25:41
+ * @Last Modified time: 2021-01-18 18:25:41
  */
 /*
-工业品爱消除
-活动共200关，通关可获得3星，600星可兑换1888京豆，按照cron运行只需7天即可得到
-感谢@yogayyy(https://github.com/yogayyy/Scripts)制作的图标
-活动入口：京东app首页-京东工业品-京东工业品年末盛典-勇闯消消乐
+个护爱消除，完成所有任务+每日挑战
+活动入口：京东app首页-个护馆-个护爱消除
 已支持IOS双京东账号,Node.js支持N个京东账号
-boxjs 填写具体兑换商品的名称，默认为1888京豆
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 ============Quantumultx===============
 [task_local]
-#工业品爱消除
-20 * * * * https://raw.githubusercontent.com/shylocks/Loon/main/jd_gyec.js, tag=工业品爱消除, img-url=https://raw.githubusercontent.com/yogayyy/Scripts/master/Icon/shylocks/jd_gyec.jpg, enabled=true
+#个护爱消除
+40 * * * * https://raw.githubusercontent.com/shylocks/Loon/main/jd_xxl_gh.js, tag=个护爱消除, img-url=https://raw.githubusercontent.com/yogayyy/Scripts/master/Icon/shylocks/jd_xxl_gh.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "20 * * * *" script-path=https://raw.githubusercontent.com/shylocks/Loon/main/jd_gyec.js,tag=工业品爱消除
+cron "40 * * * *" script-path=https://raw.githubusercontent.com/shylocks/Loon/main/jd_xxl_gh.js,tag=个护爱消除
 
 ===============Surge=================
-工业品爱消除 = type=cron,cronexp="20 * * * *",wake-system=1,timeout=200,script-path=https://raw.githubusercontent.com/shylocks/Loon/main/jd_gyec.js
+个护爱消除 = type=cron,cronexp="40 * * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/shylocks/Loon/main/jd_xxl_gh.js
 
 ============小火箭=========
-工业品爱消除 = type=cron,script-path=https://raw.githubusercontent.com/shylocks/Loon/main/jd_gyec.js, cronexpr="20 * * * *", timeout=200, enable=true
+个护爱消除 = type=cron,script-path=https://raw.githubusercontent.com/shylocks/Loon/main/jd_xxl_gh.js, cronexpr="40 * * * *", timeout=200, enable=true
+
  */
-const $ = new Env('工业品爱消除');
-const notify = $.isNode() ? require('./sendNotify') : '';
+const $ = new Env('个护爱消除');
+const notify = $.isNode() ? require('./sendNotify.js') : '';
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
-let inviteCodes = [
-  '840266@2585219@2586018@1556311@2583822@2585256@756497@1234613',
-  '840266@2585219@2586018@1556311@2583822@2585256@756497@1234613',
-]
-const ACT_ID = 'A_112790_R_4_D_20201209'
-let exchangeName = $.isNode() ? (process.env.EXCHANGE_GYEC ? process.env.EXCHANGE_GYEC : '1888京豆') : ($.getdata('JDGYEC') ? $.getdata('JDGYEC') : '1888京豆')
+let exchangeName = $.isNode() ? (process.env.EXCHANGE_EC ? process.env.EXCHANGE_EC : '京豆*1888') : ($.getdata('JDEC') ? $.getdata('JDEC') : '京豆*1888')
+
+let ACT_ID = 'A_112790_R_3_D_20201102'
 //Node.js用户请在jdCookie.js处填写京东ck;
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
+let inviteCodes = [
+  '840266@2585219@2586018@1556311@2583822@2585256',
+  '840266@2585219@2586018@1556311@2583822@2585256',
+]
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
     cookiesArr.push(jdCookieNode[item])
@@ -72,9 +71,9 @@ function obj2param(obj) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
     return;
   }
-  $.shareCodesArr = []
   await requireConfig()
-  console.log(`您要兑换的商品名称为${exchangeName}`)
+
+  $.shareCodesArr = []
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
@@ -95,8 +94,8 @@ function obj2param(obj) {
         continue
       }
       await shareCodesFormat()
-      await jdGy()
-      await getAuthorShareCode()
+      await jdBeauty()
+      await jdBeauty(false)
     }
   }
 })()
@@ -107,25 +106,16 @@ function obj2param(obj) {
     $.done();
   })
 
-async function jdGy(help = true) {
+async function jdBeauty(help = true) {
   $.reqId = 1
-  try{
-    await getIsvToken()
-    await getIsvToken2()
-    await getActInfo()
-    await getTaskList()
-    await getDailyMatch()
-    if (help) {
-      await helpFriends()
-    }
-    // await marketGoods()
-    await play()
-  }
-  catch (e) {
-    console.log(e)
-  }
+  await getIsvToken()
+  await getIsvToken2()
+  await getActInfo()
+  await getTaskList()
+  await getDailyMatch()
+  // await marketGoods()
+  if(help)await helpFriends()
 }
-
 async function helpFriends() {
   for (let code of $.newShareCodes) {
     if (!code) continue
@@ -134,8 +124,8 @@ async function helpFriends() {
     await $.wait(500)
   }
 }
-
 // 获得IsvToken
+
 function getIsvToken() {
   return new Promise(resolve => {
     $.post(jdUrl('encrypt/pin?appId=dafbe42d5bff9d82298e5230eb8c3f79'), async (err, resp, data) => {
@@ -181,7 +171,7 @@ function getIsvToken2() {
   })
 }
 
-function getActInfo(inviter = null) {
+function getActInfo(inviter=null) {
   let body = {
     "inviter": inviter,
     "activeId": ACT_ID,
@@ -200,8 +190,8 @@ function getActInfo(inviter = null) {
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
           if (safeGet(data)) {
-            if (!inviter) {
-              data = JSON.parse(data);
+            data = JSON.parse(data);
+            if(!inviter) {
               $.info = data.info
               $.id = data.id
               $.authcode = data.authcode
@@ -225,7 +215,7 @@ function getActInfo(inviter = null) {
 
 function checkLogin() {
   return new Promise(resolve => {
-    $.post(taskUrl("eliminate_jdmy/game/local/logincheck", {
+    $.post(taskUrl("eliminate_jd/game/local/logincheck", {
       info: JSON.stringify($.info),
       "reqsId": $.reqId++
     }), async (err, resp, data) => {
@@ -240,16 +230,14 @@ function checkLogin() {
             $.gameToken = data.token
             $.strength = data.role.items['8003']
             console.log(`当前体力：${$.strength}`)
+            // console.log(JSON.stringify(data))
+            $.curLevel = data.role.gameInfo.levelId || 40103
             $.not3Star = []
             for(let level of data.role.allLevels){
               if(level.maxStar!==3){
                 $.not3Star.push(level.id)
               }
             }
-            if(data.role.allLevels.length)
-              $.level = parseInt(data.role.allLevels[data.role.allLevels.length-1]['id'])
-            else
-              $.level = 1
             if($.not3Star.length)
               console.log(`当前尚未三星的关卡为：${$.not3Star.join(',')}`)
             // SecrectUtil.InitEncryptInfo($.gameToken, $.gameId)
@@ -281,7 +269,21 @@ function getTaskList() {
             if (safeGet(data)) {
               data = JSON.parse(data)
               for (let task of data.tasks) {
-                if (task.res.sName === "逛逛店铺" || task.res.sName === "浏览会场") {
+                if (task.res.sName === "闯关集星") {
+                  $.level = task.state.value + 1
+                  console.log(`当前关卡：${$.level}`)
+                  while ($.strength >= 5 && $.level <= 240) {
+                    await beginLevel()
+                  }
+                  if($.not3Star.length && $.strength >= 5){
+                    console.log(`去完成尚未三星的关卡`)
+                    for(let level of $.not3Star){
+                      $.level = parseInt(level)
+                      await beginLevel()
+                      if($.strength<5) break
+                    }
+                  }
+                } else if (task.res.sName === "逛逛店铺") {
                   if (task.state.iFreshTimes < task.res.iFreshTimes)
                     console.log(`去做${task.res.sName}任务`)
                   for (let i = task.state.iFreshTimes; i < task.res.iFreshTimes; ++i) {
@@ -356,27 +358,13 @@ function getTaskList() {
                   }
                 } else if (task.res.sName === '喂养狗狗' || task.res.sName === '每日签到') {
                   if (!task.state.get) {
-                    console.log(`去做${task.res.sName}任务`)
+                    if (task.state.iFreshTimes < task.res.iFreshTimes)
+                      console.log(`去做${task.res.sName}任务`)
                     await uploadTask(task.res.eType, task.res.iValue)
                     await $.wait(500)
                     await finishTask(task.res.sID)
                   }
-                } else if (task.res.sName === '关注频道') {
-                  if (!task.state.get) {
-                    console.log(`去做${task.res.sName}任务`)
-                    let body = {
-                      "api": "followChannel",
-                      "channelId": task.adInfo.sValue,
-                      "id": $.id,
-                      "activeid": ACT_ID,
-                      "activeId": ACT_ID,
-                      "authcode": $.authcode,
-                    }
-                    await execute(body)
-                    await $.wait(500)
-                    await finishTask(task.res.sID)
-                  }
-                } else if (task.res.sName === '好友助力') {
+                } else if(task.res.sName === '好友助力') {
                   console.log(`去领取好友助力任务`)
                   await finishTask(task.res.sID)
                 }
@@ -398,7 +386,7 @@ function rand(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-async function beginLevel() {
+function beginLevel() {
   let body = {
     'gameId': $.gameId,
     'token': $.gameToken,
@@ -407,7 +395,7 @@ async function beginLevel() {
     'reqsId': $.reqId++
   }
   return new Promise(resolve => {
-    $.post(taskUrl("eliminate_jdmy/game/local/beginLevel", obj2param(body), true),
+    $.post(taskUrl("eliminate_jd/game/local/beginLevel", obj2param(body), true),
       async (err, resp, data) => {
         try {
           if (err) {
@@ -428,7 +416,7 @@ async function beginLevel() {
                 console.log(`关卡开启失败，体力不足`)
               } else {
                 $.strength = 0
-                // console.log(`关卡开启失败，未知错误`)
+                // console.log(`关卡开启失败，错误信息：${JSON.stringify(data)}`)
               }
             }
           }
@@ -450,7 +438,7 @@ function endLevel() {
     'reqsId': $.reqId++
   }
   return new Promise(resolve => {
-    $.post(taskUrl("eliminate_jdmy/game/local/endLevel", obj2param(body), true),
+    $.post(taskUrl("eliminate_jd/game/local/endLevel", obj2param(body), true),
       async (err, resp, data) => {
         try {
           if (err) {
@@ -548,7 +536,7 @@ function finishTask(taskId) {
                 }
                 console.log(msg)
               } else {
-                // console.log(`任务完成失败，错误信息：${JSON.stringify(data)}`)
+                console.log(`暂无每日挑战任务`)
               }
             }
           }
@@ -588,97 +576,6 @@ function execute(body) {
   })
 }
 
-function marketGoods() {
-  let body = {
-    "id": $.id,
-    "activeid": ACT_ID,
-    "activeId": ACT_ID,
-    "token": $.to,
-    "authcode": $.authcode
-  }
-  return new Promise(resolve => {
-    $.post(taskUrl("/platform/active/role/marketgoods", body),
-      async (err, resp, data) => {
-        try {
-          if (err) {
-            console.log(`${err}`)
-            console.log(`${$.name} API请求失败，请检查网路重试`)
-          } else {
-            if (safeGet(data)) {
-              data = JSON.parse(data)
-              if (data.code === 0) {
-                for (let vo of data.list) {
-                  if (vo.name === exchangeName) {
-                    let cond = vo['res']['asConsume'][0].split(',')
-                    await buyGood(vo['res']['sID'])
-                  }
-                }
-              } else {
-                // console.log(`任务完成失败，错误信息：${JSON.stringify(data)}`)
-              }
-            }
-          }
-        } catch (e) {
-          $.logErr(e, resp)
-        } finally {
-          resolve(data);
-        }
-      })
-  })
-}
-
-async function play() {
-  $.level += 1
-  console.log(`当前关卡：${$.level}`)
-  while ($.strength >= 5 && $.level <= 280) {
-    await beginLevel()
-  }
-  if($.not3Star.length && $.strength >= 5){
-    console.log(`去完成尚未三星的关卡`)
-    for(let level of $.not3Star){
-      $.level = parseInt(level)
-      await beginLevel()
-      if($.strength<5) break
-    }
-  }
-}
-
-function buyGood(consumeid) {
-  let body = {
-    "consumeid": consumeid,
-    "id": $.id,
-    "activeid": ACT_ID,
-    "activeId": ACT_ID,
-    "token": $.to,
-    "authcode": $.authcode
-  }
-  return new Promise(resolve => {
-    $.post(taskUrl("/platform/active/role/marketbuy", body),
-      async (err, resp, data) => {
-        try {
-          if (err) {
-            console.log(`${err}`)
-            console.log(`${$.name} API请求失败，请检查网路重试`)
-          } else {
-            if (safeGet(data)) {
-              data = JSON.parse(data)
-              if (data.code === 0) {
-                console.log(`商品兑换成功，获得${data.item[0].itemid === 'JD29' ? '京豆' : '未知奖品'} * ${data.item[0].count}`)
-              } else {
-                console.log(`任务完成失败，错误信息：${JSON.stringify(data)}`)
-              }
-            }
-          }
-        } catch (e) {
-          $.logErr(e, resp)
-        } finally {
-          resolve(data);
-        }
-      })
-  })
-}
-
-
 function getDailyMatch() {
   let body = {
     'gameId': $.gameId,
@@ -707,7 +604,7 @@ function getDailyMatch() {
                   await beginDailyMatch()
                 }
               } else {
-                console.log(`暂无每日挑战任务`)
+                console.log(`关卡开启失败，错误信息：${JSON.stringify(data)}`)
               }
             }
           }
@@ -827,6 +724,81 @@ function getDailyMatchAward() {
       })
   })
 }
+function marketGoods() {
+  let body = {
+    "id": $.id,
+    "activeid": ACT_ID,
+    "activeId": ACT_ID,
+    "token": $.to,
+    "authcode": $.authcode
+  }
+  return new Promise(resolve => {
+    $.post(taskUrl("/platform/active/role/marketgoods", body),
+      async (err, resp, data) => {
+        try {
+          if (err) {
+            console.log(`${err}`)
+            console.log(`${$.name} API请求失败，请检查网路重试`)
+          } else {
+            if (safeGet(data)) {
+              data = JSON.parse(data)
+              if (data.code === 0) {
+                for (let vo of data.list) {
+                  if (vo.name === exchangeName) {
+                    let cond = vo['res']['asConsume'][0].split(',')
+                    if (vo['left'] === 1 && vo['count'] !== 0 && cond[0] === 'X028' && parseInt(cond[1]) <= $.money) {
+                      await buyGood(vo['res']['sID'])
+                    }
+                  }
+                }
+              } else {
+                console.log(`任务完成失败，错误信息：${JSON.stringify(data)}`)
+              }
+            }
+          }
+        } catch (e) {
+          $.logErr(e, resp)
+        } finally {
+          resolve(data);
+        }
+      })
+  })
+}
+
+function buyGood(consumeid) {
+  let body = {
+    "consumeid": consumeid,
+    "id": $.id,
+    "activeid": ACT_ID,
+    "activeId": ACT_ID,
+    "token": $.to,
+    "authcode": $.authcode
+  }
+  return new Promise(resolve => {
+    $.post(taskUrl("/platform/active/role/marketbuy", body),
+      async (err, resp, data) => {
+        try {
+          if (err) {
+            console.log(`${err}`)
+            console.log(`${$.name} API请求失败，请检查网路重试`)
+          } else {
+            if (safeGet(data)) {
+              data = JSON.parse(data)
+              if (data.code === 0) {
+                console.log(`商品兑换成功，获得${data.item[0].itemid === 'JD29' ? '京豆' : '未知奖品'} * ${data.item[0].count}`)
+              } else {
+                console.log(`任务完成失败，错误信息：${JSON.stringify(data)}`)
+              }
+            }
+          }
+        } catch (e) {
+          $.logErr(e, resp)
+        } finally {
+          resolve(data);
+        }
+      })
+  })
+}
 function taskUrl(functionId, body = {}, decrypt = false) {
   return {
     url: `https://jd.moxigame.cn/${functionId}`,
@@ -835,14 +807,31 @@ function taskUrl(functionId, body = {}, decrypt = false) {
       'Host': 'jd.moxigame.cn',
       'Connection': 'keep-alive',
       'Content-Type': decrypt ? 'application/x-www-form-urlencoded' : 'application/json',
-      'Referer': 'https://game-cdn.moxigame.cn/eliminateJD/index.html?activeId=A_112790_R_4_D_20201209',
+      'Referer': 'https://game-cdn.moxigame.cn/eliminateJD/index.html?activeId=A_112790_R_1_D_20201028',
       'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0") : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0"),
       'Accept-Language': 'zh-cn',
       'Accept-Encoding': 'gzip, deflate, br',
     }
   }
 }
-
+function getDailyReward() {
+  let headers = {
+    'Host': 'api.m.jd.com',
+    'accept': '*/*',
+    'content-type': 'application/json',
+    'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.20(0x1700142b) NetType/WIFI Language/zh_CN',
+    'referer': 'https://servicewechat.com/wx91d27dbf599dff74/499/page-frame.html',
+    'accept-language': 'zh-cn',
+    'Cookie': cookie
+  };
+  let body =
+    {"platform":1,"unionActId":"31125","actId":"8mCuSXtK1MgxzDTbJEPtYU1AchA","unionShareId":"","type":1,"eid":"DPIFTWTK6N7EEVHNJW3JW7PZDALZNTODNUBBYWQBAYXPAJCH7AMIUEGY7LVCWCRILXXEYOAM5DXZJKY5Y5AZNHQFJI"}
+  $.get({url:
+      `https://api.m.jd.com/api?functionId=getCoupons&appid=u&_=${new Date().getTime()}&loginType=2&body=${escape(JSON.stringify(body))}&client=wh5&clientVersion=1.0.0`,
+    headers: headers},(err,resp,data)=>{
+    console.log(data)
+  })
+}
 function jdUrl(functionId, body = '') {
   return {
     url: `https://jdjoy.jd.com/saas/framework/${functionId}`,
@@ -857,7 +846,6 @@ function jdUrl(functionId, body = '') {
     }
   }
 }
-
 function TotalBean() {
   return new Promise(async resolve => {
     const options = {
@@ -899,7 +887,6 @@ function TotalBean() {
   })
 }
 
-
 //格式化助力码
 function shareCodesFormat() {
   return new Promise(async resolve => {
@@ -920,7 +907,6 @@ function shareCodesFormat() {
     resolve();
   })
 }
-
 function requireConfig() {
   return new Promise(resolve => {
     console.log(`开始获取${$.name}配置文件\n`);
@@ -951,42 +937,7 @@ function safeGet(data) {
     return false;
   }
 }
-function getAuthorShareCode() {
-  return new Promise(resolve => {
-    $.get({url: "https://gitee.com/shylocks/updateTeam/raw/main/jd_super.json",headers:{
-        "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
-      }}, async (err, resp, data) => {
-      try {
-        if (err) {
-        } else {
-          let headers = {
-            'Host': 'api.m.jd.com',
-            'accept': 'application/json, text/plain, */*',
-            'origin': 'https://h5.m.jd.com',
-            'user-agent': 'jdapp;iPhone;9.3.5;14.2;53f4d9c70c1c81f1c8769d2fe2fef0190a3f60d2;network/wifi;supportApplePay/0;hasUPPay/0;hasOCPay/0;model/iPhone10,2;addressid/137923973;supportBestPay/0;appBuild/167515;jdSupportDarkMode/0;pv/2217.74;apprpd/MyJD_PersonalSpace;ref/MySpace;psq/8;ads/;psn/53f4d9c70c1c81f1c8769d2fe2fef0190a3f60d2|8703;jdv/0|kong|t_1000170135|tuiguang|notset|1610674234917|1610674234;adk/;app_device/IOS;pap/JA2015_311210|9.3.5|IOS 14.2;Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
-            'accept-language': 'zh-cn',
-            'referer': 'https://h5.m.jd.com/babelDiy/Zeus/25C6dc6HY6if6DT7e58A1pi2Vxe4/index.html?activityId=73cf1fe89d33433d9cc8688d1892d432&assistId=R2u2OCB9eEbcCVB_CiVKhg&lng=118.715991&lat=32.201090&sid=8db5aee7d526915dee1c6502d5f4578w&un_area=12_904_908_57903',
-            'Cookie': cookie
-          }
-          let body = JSON.parse(data)
-          for(let vo of body) {
-            if (vo) {
-              const options = {
-                url: `https://api.m.jd.com/client.action?clientVersion=9.3.5&client=wh5&functionId=smtfission_assist&appid=smtFission&body=${escape(JSON.stringify(body))}`,
-                headers: headers
-              }
-              $.get(options)
-            }
-          }
-        }
-      } catch (e) {
-        // $.logErr(e, resp)
-      } finally {
-        resolve();
-      }
-    })
-  })
-}
+
 function jsonParse(str) {
   if (typeof str == "string") {
     try {
@@ -999,4 +950,4 @@ function jsonParse(str) {
   }
 }
 // prettier-ignore
-function Env(t,s){return new class{constructor(t,s){this.name=t,this.data=null,this.dataFile="box.dat",this.logs=[],this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,s),this.log("",`\ud83d\udd14${this.name}, \u5f00\u59cb!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}getScript(t){return new Promise(s=>{$.get({url:t},(t,e,i)=>s(i))})}runScript(t,s){return new Promise(e=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let o=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");o=o?1*o:20,o=s&&s.timeout?s.timeout:o;const[h,a]=i.split("@"),r={url:`http://${a}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:o},headers:{"X-Key":h,Accept:"*/*"}};$.post(r,(t,s,i)=>e(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),s=this.path.resolve(process.cwd(),this.dataFile),e=this.fs.existsSync(t),i=!e&&this.fs.existsSync(s);if(!e&&!i)return{};{const i=e?t:s;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),s=this.path.resolve(process.cwd(),this.dataFile),e=this.fs.existsSync(t),i=!e&&this.fs.existsSync(s),o=JSON.stringify(this.data);e?this.fs.writeFileSync(t,o):i?this.fs.writeFileSync(s,o):this.fs.writeFileSync(t,o)}}lodash_get(t,s,e){const i=s.replace(/\[(\d+)\]/g,".$1").split(".");let o=t;for(const t of i)if(o=Object(o)[t],void 0===o)return e;return o}lodash_set(t,s,e){return Object(t)!==t?t:(Array.isArray(s)||(s=s.toString().match(/[^.[\]]+/g)||[]),s.slice(0,-1).reduce((t,e,i)=>Object(t[e])===t[e]?t[e]:t[e]=Math.abs(s[i+1])>>0==+s[i+1]?[]:{},t)[s[s.length-1]]=e,t)}getdata(t){let s=this.getval(t);if(/^@/.test(t)){const[,e,i]=/^@(.*?)\.(.*?)$/.exec(t),o=e?this.getval(e):"";if(o)try{const t=JSON.parse(o);s=t?this.lodash_get(t,i,""):s}catch(t){s=""}}return s}setdata(t,s){let e=!1;if(/^@/.test(s)){const[,i,o]=/^@(.*?)\.(.*?)$/.exec(s),h=this.getval(i),a=i?"null"===h?null:h||"{}":"{}";try{const s=JSON.parse(a);this.lodash_set(s,o,t),e=this.setval(JSON.stringify(s),i)}catch(s){const h={};this.lodash_set(h,o,t),e=this.setval(JSON.stringify(h),i)}}else e=$.setval(t,s);return e}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,s){return this.isSurge()||this.isLoon()?$persistentStore.write(t,s):this.isQuanX()?$prefs.setValueForKey(t,s):this.isNode()?(this.data=this.loaddata(),this.data[s]=t,this.writedata(),!0):this.data&&this.data[s]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,s=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?$httpClient.get(t,(t,e,i)=>{!t&&e&&(e.body=i,e.statusCode=e.status),s(t,e,i)}):this.isQuanX()?$task.fetch(t).then(t=>{const{statusCode:e,statusCode:i,headers:o,body:h}=t;s(null,{status:e,statusCode:i,headers:o,body:h},h)},t=>s(t)):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,s)=>{try{const e=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();this.ckjar.setCookieSync(e,null),s.cookieJar=this.ckjar}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:e,statusCode:i,headers:o,body:h}=t;s(null,{status:e,statusCode:i,headers:o,body:h},h)},t=>s(t)))}post(t,s=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),delete t.headers["Content-Length"],this.isSurge()||this.isLoon())$httpClient.post(t,(t,e,i)=>{!t&&e&&(e.body=i,e.statusCode=e.status),s(t,e,i)});else if(this.isQuanX())t.method="POST",$task.fetch(t).then(t=>{const{statusCode:e,statusCode:i,headers:o,body:h}=t;s(null,{status:e,statusCode:i,headers:o,body:h},h)},t=>s(t));else if(this.isNode()){this.initGotEnv(t);const{url:e,...i}=t;this.got.post(e,i).then(t=>{const{statusCode:e,statusCode:i,headers:o,body:h}=t;s(null,{status:e,statusCode:i,headers:o,body:h},h)},t=>s(t))}}time(t){let s={"M+":(new Date).getMonth()+1,"d+":(new Date).getDate(),"H+":(new Date).getHours(),"m+":(new Date).getMinutes(),"s+":(new Date).getSeconds(),"q+":Math.floor(((new Date).getMonth()+3)/3),S:(new Date).getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,((new Date).getFullYear()+"").substr(4-RegExp.$1.length)));for(let e in s)new RegExp("("+e+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?s[e]:("00"+s[e]).substr((""+s[e]).length)));return t}msg(s=t,e="",i="",o){const h=t=>!t||!this.isLoon()&&this.isSurge()?t:"string"==typeof t?this.isLoon()?t:this.isQuanX()?{"open-url":t}:void 0:"object"==typeof t&&(t["open-url"]||t["media-url"])?this.isLoon()?t["open-url"]:this.isQuanX()?t:void 0:void 0;this.isSurge()||this.isLoon()?$notification.post(s,e,i,h(o)):this.isQuanX()&&$notify(s,e,i,h(o)),this.logs.push("","==============\ud83d\udce3\u7cfb\u7edf\u901a\u77e5\ud83d\udce3=============="),this.logs.push(s),e&&this.logs.push(e),i&&this.logs.push(i)}log(...t){t.length>0?this.logs=[...this.logs,...t]:console.log(this.logs.join(this.logSeparator))}logErr(t,s){const e=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();e?$.log("",`\u2757\ufe0f${this.name}, \u9519\u8bef!`,t.stack):$.log("",`\u2757\ufe0f${this.name}, \u9519\u8bef!`,t)}wait(t){return new Promise(s=>setTimeout(s,t))}done(t={}){const s=(new Date).getTime(),e=(s-this.startTime)/1e3;this.log("",`\ud83d\udd14${this.name}, \u7ed3\u675f! \ud83d\udd5b ${e} \u79d2`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,s)}
+function Env(t,e){class s{constructor(t){this.env=t}send(t,e="GET"){t="string"==typeof t?{url:t}:t;let s=this.get;return"POST"===e&&(s=this.post),new Promise((e,i)=>{s.call(this,t,(t,s,r)=>{t?i(t):e(s)})})}get(t){return this.send.call(this.env,t)}post(t){return this.send.call(this.env,t,"POST")}}return new class{constructor(t,e){this.name=t,this.http=new s(this),this.data=null,this.dataFile="box.dat",this.logs=[],this.isMute=!1,this.isNeedRewrite=!1,this.logSeparator="\n",this.startTime=(new Date).getTime(),Object.assign(this,e),this.log("",`\ud83d\udd14${this.name}, \u5f00\u59cb!`)}isNode(){return"undefined"!=typeof module&&!!module.exports}isQuanX(){return"undefined"!=typeof $task}isSurge(){return"undefined"!=typeof $httpClient&&"undefined"==typeof $loon}isLoon(){return"undefined"!=typeof $loon}toObj(t,e=null){try{return JSON.parse(t)}catch{return e}}toStr(t,e=null){try{return JSON.stringify(t)}catch{return e}}getjson(t,e){let s=e;const i=this.getdata(t);if(i)try{s=JSON.parse(this.getdata(t))}catch{}return s}setjson(t,e){try{return this.setdata(JSON.stringify(t),e)}catch{return!1}}getScript(t){return new Promise(e=>{this.get({url:t},(t,s,i)=>e(i))})}runScript(t,e){return new Promise(s=>{let i=this.getdata("@chavy_boxjs_userCfgs.httpapi");i=i?i.replace(/\n/g,"").trim():i;let r=this.getdata("@chavy_boxjs_userCfgs.httpapi_timeout");r=r?1*r:20,r=e&&e.timeout?e.timeout:r;const[o,h]=i.split("@"),a={url:`http://${h}/v1/scripting/evaluate`,body:{script_text:t,mock_type:"cron",timeout:r},headers:{"X-Key":o,Accept:"*/*"}};this.post(a,(t,e,i)=>s(i))}).catch(t=>this.logErr(t))}loaddata(){if(!this.isNode())return{};{this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e);if(!s&&!i)return{};{const i=s?t:e;try{return JSON.parse(this.fs.readFileSync(i))}catch(t){return{}}}}}writedata(){if(this.isNode()){this.fs=this.fs?this.fs:require("fs"),this.path=this.path?this.path:require("path");const t=this.path.resolve(this.dataFile),e=this.path.resolve(process.cwd(),this.dataFile),s=this.fs.existsSync(t),i=!s&&this.fs.existsSync(e),r=JSON.stringify(this.data);s?this.fs.writeFileSync(t,r):i?this.fs.writeFileSync(e,r):this.fs.writeFileSync(t,r)}}lodash_get(t,e,s){const i=e.replace(/\[(\d+)\]/g,".$1").split(".");let r=t;for(const t of i)if(r=Object(r)[t],void 0===r)return s;return r}lodash_set(t,e,s){return Object(t)!==t?t:(Array.isArray(e)||(e=e.toString().match(/[^.[\]]+/g)||[]),e.slice(0,-1).reduce((t,s,i)=>Object(t[s])===t[s]?t[s]:t[s]=Math.abs(e[i+1])>>0==+e[i+1]?[]:{},t)[e[e.length-1]]=s,t)}getdata(t){let e=this.getval(t);if(/^@/.test(t)){const[,s,i]=/^@(.*?)\.(.*?)$/.exec(t),r=s?this.getval(s):"";if(r)try{const t=JSON.parse(r);e=t?this.lodash_get(t,i,""):e}catch(t){e=""}}return e}setdata(t,e){let s=!1;if(/^@/.test(e)){const[,i,r]=/^@(.*?)\.(.*?)$/.exec(e),o=this.getval(i),h=i?"null"===o?null:o||"{}":"{}";try{const e=JSON.parse(h);this.lodash_set(e,r,t),s=this.setval(JSON.stringify(e),i)}catch(e){const o={};this.lodash_set(o,r,t),s=this.setval(JSON.stringify(o),i)}}else s=this.setval(t,e);return s}getval(t){return this.isSurge()||this.isLoon()?$persistentStore.read(t):this.isQuanX()?$prefs.valueForKey(t):this.isNode()?(this.data=this.loaddata(),this.data[t]):this.data&&this.data[t]||null}setval(t,e){return this.isSurge()||this.isLoon()?$persistentStore.write(t,e):this.isQuanX()?$prefs.setValueForKey(t,e):this.isNode()?(this.data=this.loaddata(),this.data[e]=t,this.writedata(),!0):this.data&&this.data[e]||null}initGotEnv(t){this.got=this.got?this.got:require("got"),this.cktough=this.cktough?this.cktough:require("tough-cookie"),this.ckjar=this.ckjar?this.ckjar:new this.cktough.CookieJar,t&&(t.headers=t.headers?t.headers:{},void 0===t.headers.Cookie&&void 0===t.cookieJar&&(t.cookieJar=this.ckjar))}get(t,e=(()=>{})){t.headers&&(delete t.headers["Content-Type"],delete t.headers["Content-Length"]),this.isSurge()||this.isLoon()?(this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.get(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)})):this.isQuanX()?(this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t))):this.isNode()&&(this.initGotEnv(t),this.got(t).on("redirect",(t,e)=>{try{if(t.headers["set-cookie"]){const s=t.headers["set-cookie"].map(this.cktough.Cookie.parse).toString();this.ckjar.setCookieSync(s,null),e.cookieJar=this.ckjar}}catch(t){this.logErr(t)}}).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)}))}post(t,e=(()=>{})){if(t.body&&t.headers&&!t.headers["Content-Type"]&&(t.headers["Content-Type"]="application/x-www-form-urlencoded"),t.headers&&delete t.headers["Content-Length"],this.isSurge()||this.isLoon())this.isSurge()&&this.isNeedRewrite&&(t.headers=t.headers||{},Object.assign(t.headers,{"X-Surge-Skip-Scripting":!1})),$httpClient.post(t,(t,s,i)=>{!t&&s&&(s.body=i,s.statusCode=s.status),e(t,s,i)});else if(this.isQuanX())t.method="POST",this.isNeedRewrite&&(t.opts=t.opts||{},Object.assign(t.opts,{hints:!1})),$task.fetch(t).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>e(t));else if(this.isNode()){this.initGotEnv(t);const{url:s,...i}=t;this.got.post(s,i).then(t=>{const{statusCode:s,statusCode:i,headers:r,body:o}=t;e(null,{status:s,statusCode:i,headers:r,body:o},o)},t=>{const{message:s,response:i}=t;e(s,i,i&&i.body)})}}time(t){let e={"M+":(new Date).getMonth()+1,"d+":(new Date).getDate(),"H+":(new Date).getHours(),"m+":(new Date).getMinutes(),"s+":(new Date).getSeconds(),"q+":Math.floor(((new Date).getMonth()+3)/3),S:(new Date).getMilliseconds()};/(y+)/.test(t)&&(t=t.replace(RegExp.$1,((new Date).getFullYear()+"").substr(4-RegExp.$1.length)));for(let s in e)new RegExp("("+s+")").test(t)&&(t=t.replace(RegExp.$1,1==RegExp.$1.length?e[s]:("00"+e[s]).substr((""+e[s]).length)));return t}msg(e=t,s="",i="",r){const o=t=>{if(!t)return t;if("string"==typeof t)return this.isLoon()?t:this.isQuanX()?{"open-url":t}:this.isSurge()?{url:t}:void 0;if("object"==typeof t){if(this.isLoon()){let e=t.openUrl||t.url||t["open-url"],s=t.mediaUrl||t["media-url"];return{openUrl:e,mediaUrl:s}}if(this.isQuanX()){let e=t["open-url"]||t.url||t.openUrl,s=t["media-url"]||t.mediaUrl;return{"open-url":e,"media-url":s}}if(this.isSurge()){let e=t.url||t.openUrl||t["open-url"];return{url:e}}}};this.isMute||(this.isSurge()||this.isLoon()?$notification.post(e,s,i,o(r)):this.isQuanX()&&$notify(e,s,i,o(r)));let h=["","==============\ud83d\udce3\u7cfb\u7edf\u901a\u77e5\ud83d\udce3=============="];h.push(e),s&&h.push(s),i&&h.push(i),console.log(h.join("\n")),this.logs=this.logs.concat(h)}log(...t){t.length>0&&(this.logs=[...this.logs,...t]),console.log(t.join(this.logSeparator))}logErr(t,e){const s=!this.isSurge()&&!this.isQuanX()&&!this.isLoon();s?this.log("",`\u2757\ufe0f${this.name}, \u9519\u8bef!`,t.stack):this.log("",`\u2757\ufe0f${this.name}, \u9519\u8bef!`,t)}wait(t){return new Promise(e=>setTimeout(e,t))}done(t={}){const e=(new Date).getTime(),s=(e-this.startTime)/1e3;this.log("",`\ud83d\udd14${this.name}, \u7ed3\u675f! \ud83d\udd5b ${s} \u79d2`),this.log(),(this.isSurge()||this.isQuanX()||this.isLoon())&&$done(t)}}(t,e)}
