@@ -28,7 +28,8 @@ jobs:
       - name: '运行 【快手视频】'
         if: env.KUAISHOUMV
         run: |
-          node js/Auto_Kuaishou.js
+          cd ~/js
+          node Auto_Kuaishou.js
         env:
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
