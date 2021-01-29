@@ -3,17 +3,19 @@
     "task": [
         {
             "config":"20 0-23 * * * https://raw.githubusercontent.com/CenBoMin/GithubSync/main/CONGHUA/chonghua.js, tag=葱花视频, img-url=https://raw.githubusercontent.com/aenstan/qx/main/icon/conghua.jpg, enabled=true",
-			"addons":"https://raw.githubusercontent.com/CenBoMin/GithubSync/main/CONGHUA/GetBody.conf, tag=葱花视频body"
+            "addons":"https://raw.githubusercontent.com/CenBoMin/GithubSync/main/CONGHUA/GetBody.conf, tag=葱花视频body"
         }, 
         {
             "config":"20 6 * * * https://raw.githubusercontent.com/ziye12/JavaScript/main/Task/flw.js, tag=返利网, img-url=https://raw.githubusercontent.com/ziye12/JavaScript/main/Task/flw.png, enabled=true",
-			"addons":"https://raw.githubusercontent.com/aenstan/qx/main/rewrite/flwbody.qxrewrite, tag=返利网body"
+            "addons":"https://raw.githubusercontent.com/aenstan/qx/main/rewrite/flwbody.qxrewrite, tag=返利网body"
         }, 
         {
             "config":"16 15 * * * https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txstockqx.js, tag=腾讯自选股, img-url=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txzxg.png, enabled=true",
-			"addons":"https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txs_cookie.conf, tag=腾讯自选股app-cookie",
-			"addons":"https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txs_wxcookie.conf, tag=腾讯自选股wx-cookie"
+	    "addons":"https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txs_cookie.conf, tag=腾讯自选股app-cookie"
         }, 
+        {
+            "addons":"https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txs_wxcookie.conf, tag=腾讯自选股wx-cookie"
+        },  
         {
             "config":"0,30 6 * * * https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txstockcow.js, tag=腾讯自选股长牛活动, img-url=https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txzxg.png, enabled=true"
         },  
