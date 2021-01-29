@@ -1,0 +1,5 @@
+#获取bigfunCookie
+^https:\/\/api\.bigfun\.cn\/webview\/iphone? url script-request-body https://raw.githubusercontent.com/age174/-/main/bigfun.js
+
+hostname = api.bigfun.cn
+*/
