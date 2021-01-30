@@ -1,0 +1,5 @@
+# 京喜农场获取cookie
+
+^https\:\/\/wq\.jd\.com\/cubeactive\/farm\/dotask url script-request-header https://raw.githubusercontent.com/whyour/hundun/master/quanx/jx_nc.cookie.js
+
+hostname = wq.jd.com
