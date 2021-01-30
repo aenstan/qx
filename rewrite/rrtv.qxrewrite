@@ -1,0 +1,7 @@
+#人人视频cookie
+
+hostname = *.rr.tv
+
+
+
+^https:\/\/api\.rr\.tv\/user\/profile url script-request-header https://raw.githubusercontent.com/chavyleung/scripts/master/rrtv/rrtv.cookie.js
