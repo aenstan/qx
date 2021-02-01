@@ -3,4 +3,4 @@
 
 hostname = ios.baertt.com
 
-https://ios.baertt.com/v5/article/complete.json url script-request-body https://raw.githubusercontent.com/songyangzz/QuantumultX/master/zqgetbody.js
+https:\/\/ios\.baertt\.com\/v5\/article\/complete.json url script-request-body https://raw.githubusercontent.com/songyangzz/QuantumultX/master/zqgetbody.js
