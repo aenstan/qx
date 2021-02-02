@@ -4,3 +4,6 @@ hostname = ios.baertt.com
 
 #中青自动阅读获取body(songyangzz)
 https:\/\/ios\.baertt\.com\/v5\/article\/complete\.json url script-request-body https://raw.githubusercontent.com/songyangzz/QuantumultX/master/zqgetbody.js
+
+#中青自动阅读获取body(ztxtop)
+#https:\/\/ios\.baertt\.com\/v5\/article\/complete\.json url script-request-body https://raw.githubusercontent.com/ztxtop/x/main/zqread.js
