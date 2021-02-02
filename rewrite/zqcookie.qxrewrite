@@ -4,12 +4,14 @@ hostname = *.youth.cn, ios.baertt.com
 
 https:\/\/\w+\.youth\.cn\/WebApi\/NewTaskIos\/TaskCenter\/(sign|getSign) url script-request-header https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js
 
-https?:\/\/ios\.baertt\.com\/v5\/article\/complete\.json url script-request-body https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js
+https:\/\/ios\.baertt\.com\/v5\/article\/complete\.json url script-request-body https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js
 
 https:\/\/ios\.baertt\.com\/v5\/article\/red_packet url script-request-body https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js
 
 https:\/\/ios\.baertt\.com\/v5\/user\/app_stay\.json url script-request-body https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js
 
 https:\/\/ios\.baertt\.com\/v5\/task\/browse_(start|end)\.json url script-request-body https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth_gain.js
+
+https:\/\/ios\.baertt\.com\/v5\/Nameless\/adlickstart\.json url script-request-body https://raw.githubusercontent.com/ztxtop/x/main/youth_banner.js
 
 https:\/\/ios\.baertt\.com\/v5\/\w+\/withdraw\d?\.json url script-request-body https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js
