@@ -2,7 +2,7 @@
 hostname = *.youth.cn, ios.baertt.com
 
 #中青获取签到cookie（Sunert）
-https:\/\/\w+\.youth\.cn\/WebApi\/NewTasklos\/(sign|getSign) url script-request-header https://raw.githubusercontent.com/aenstan/qx/main/js/youth.js
+https:\/\/\w+\.youth\.cn\/WebApi\/NewUserTask\/(sign|info_new) url script-request-header https://raw.githubusercontent.com/aenstan/qx/main/js/youth.js
 
 #中青获取红包奖励（Sunert）
 https:\/\/ios\.baertt\.com\/v5\/article\/red_packet url script-request-body https://raw.githubusercontent.com/aenstan/qx/main/js/youth.js
