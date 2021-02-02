@@ -1,6 +1,7 @@
 /*
-更新时间: 2021-02-2 17:00
-
+更新时间: 2021-01-31 19:00
+赞赏:中青邀请码`46308484`,农妇山泉 -> 有点咸，万分感谢
+本脚本仅适用于中青看点极速版领取青豆
 
 */
 
@@ -190,7 +191,7 @@ else if ($request && $request.method != `OPTIONS`&& $request.url.match(/\/withdr
 function sign() {
     return new Promise((resolve, reject) => {
         const signurl = {
-            url: 'https://kd.youth.cn/NewTasklos/sign',
+            url: 'https://kd.youth.cn/WebApi/NewTasklos/sign',
             headers: JSON.parse(signheaderVal),
         }
         $.post(signurl, (error, response, data) => {
@@ -214,7 +215,7 @@ function sign() {
 function signInfo() {
     return new Promise((resolve, reject) => {
         const infourl = {
-            url: 'https://kd.youth.cn/NewTasklos/getSign',
+            url: 'https://kd.youth.cn/WebApi/NewTasklos/getSign',
             headers: JSON.parse(signheaderVal),
         }
         $.post(infourl, async(error, response, data) => {
@@ -427,7 +428,7 @@ function friendSign(uid) {
 function getAdVideo() {
     return new Promise((resolve, reject) => {
         const url = {
-            url: `https://kd.youth.cn/NewTasklos/getAdVideoReward`,
+            url: `https://kd.youth.cn/WebApi/NewTasklos/getAdVideoReward`,
             headers: JSON.parse(signheaderVal),
             body: 'type=NewTasklos'
         }
