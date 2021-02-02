@@ -7,3 +7,6 @@ https:\/\/ios\.baertt\.com\/v5\/article\/complete\.json url script-request-body 
 
 #中青自动阅读获取body(ztxtop)
 #https:\/\/ios\.baertt\.com\/v5\/article\/complete\.json url script-request-body https://raw.githubusercontent.com/ztxtop/x/main/zqread.js
+
+#中青获取阅读请求（Sunert）
+#https:\/\/ios\.baertt\.com\/v5\/article\/complete\.json url script-request-body https://raw.githubusercontent.com/aenstan/qx/main/js/youth.js
