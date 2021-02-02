@@ -8,7 +8,7 @@
 let s = 1000 //各数据接口延迟
 const $ = new Env("中青看点")
 let notifyInterval = $.getdata("notifytimes")||50 //通知间隔，默认抽奖每50次通知一次，如需关闭全部通知请设为0
-const YOUTH_HOST = "https://kd.youth.cn/WebApi/";
+const YOUTH_HOST = "https://kd.youth.cn/";
 const notify = $.isNode() ? require('./sendNotify') : '';
 const withdrawcash = $.getdata('zqcash')||30 //提现金额
 let withdrawUrl =$.getdata('cashurl_zq')
@@ -154,7 +154,7 @@ $.log(`转盘双倍: +${doublerotary}青豆 剩余${rotaryres.data.doubleNum}次
 
 
 function GetCookie() {
-   if ($request && $request.method != `OPTIONS`&& $request.url.match(/\/NewTasklos\/(sign|getSign)/)) {
+   if ($request && $request.method != `OPTIONS`&& $request.url.match(/\/WebApi\/NewTasklos\/(sign|getSign)/)) {
    const signheaderVal = JSON.stringify($request.headers)
     if (signheaderVal)        $.setdata(signheaderVal,'youthheader_zq')
     $.log(`${$.name} 获取Cookie: 成功,signheaderVal: ${signheaderVal}`)
@@ -248,7 +248,7 @@ function withDraw() {
         const url = {
             url: withdrawUrl,
             headers: {
-            'User-Agent': 'KDApp/1.8.2 (iPhone; iOS 14.2; Scale/3.00)'
+            'User-Agent': 'KDApp/1.8.2 (iPhone; iOS 14.4; Scale/3.00)'
             },
             body: withdrawBody,
         }
