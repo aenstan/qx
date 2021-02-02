@@ -154,7 +154,7 @@ $.log(`转盘双倍: +${doublerotary}青豆 剩余${rotaryres.data.doubleNum}次
 
 
 function GetCookie() {
-   if ($request && $request.method != `OPTIONS`&& $request.url.match(/\/TaskCenter\/(sign|getSign)/)) {
+   if ($request && $request.method != `OPTIONS`&& $request.url.match(/\/NewTasklos\/(sign|getSign)/)) {
    const signheaderVal = JSON.stringify($request.headers)
     if (signheaderVal)        $.setdata(signheaderVal,'youthheader_zq')
     $.log(`${$.name} 获取Cookie: 成功,signheaderVal: ${signheaderVal}`)
@@ -191,7 +191,7 @@ else if ($request && $request.method != `OPTIONS`&& $request.url.match(/\/withdr
 function sign() {
     return new Promise((resolve, reject) => {
         const signurl = {
-            url: 'https://kd.youth.cn/TaskCenter/sign',
+            url: 'https://kd.youth.cn/NewTasklos/sign',
             headers: JSON.parse(signheaderVal),
         }
         $.post(signurl, (error, response, data) => {
@@ -215,7 +215,7 @@ function sign() {
 function signInfo() {
     return new Promise((resolve, reject) => {
         const infourl = {
-            url: 'https://kd.youth.cn/TaskCenter/getSign',
+            url: 'https://kd.youth.cn/NewTasklos/getSign',
             headers: JSON.parse(signheaderVal),
         }
         $.post(infourl, async(error, response, data) => {
@@ -428,9 +428,9 @@ function friendSign(uid) {
 function getAdVideo() {
     return new Promise((resolve, reject) => {
         const url = {
-            url: `https://kd.youth.cn/taskCenter/getAdVideoReward`,
+            url: `https://kd.youth.cn/NewTasklos/getAdVideoReward`,
             headers: JSON.parse(signheaderVal),
-            body: 'type=taskCenter'
+            body: 'type=NewTasklos'
         }
         $.post(url, (error, response, data) => {
             adVideores = JSON.parse(data)
