@@ -2,18 +2,18 @@
 hostname = *.youth.cn, ios.baertt.com
 
 #中青获取签到cookie
-https:\/\/\w+\.youth\.cn\/WebApi\/NewUserTask\/(sign|info_new) url script-request-header https://raw.githubusercontent.com/aenstan/qx/main/js/youth(ztxtop).js
+https:\/\/\w+\.youth\.cn\/WebApi\/NewUserTask\/(sign|info_new) url script-request-header https://raw.githubusercontent.com/aenstan/qx/main/js/youth_duo.js
 
 #中青获取红包奖励
-https:\/\/ios\.baertt\.com\/v5\/article\/red_packet url script-request-body https://raw.githubusercontent.com/aenstan/qx/main/js/youth(ztxtop).js
+https:\/\/ios\.baertt\.com\/v5\/article\/red_packet url script-request-body https://raw.githubusercontent.com/ztxtop/x/main/zqread.js
 
 #中青获取阅读时长
-https:\/\/ios\.baertt\.com\/v5\/user\/app_stay\.json url script-request-body https://raw.githubusercontent.com/aenstan/qx/main/js/youth(ztxtop).js
+https:\/\/ios\.baertt\.com\/v5\/user\/app_stay\.json url script-request-body https://raw.githubusercontent.com/ztxtop/x/main/zqread.js
 
-#中青获取提现数据（Sunert）
-https:\/\/ios\.baertt\.com\/v5\/\w+\/withdraw\d?\.json url script-request-body https://raw.githubusercontent.com/aenstan/qx/main/js/youth.js
+#中青获取提现数据
+https:\/\/ios\.baertt\.com\/v5\/\w+\/withdraw\d?\.json url script-request-body https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth.js
 
-#中青获取浏览赚（Sunert）
+#中青获取浏览赚
 https:\/\/ios\.baertt\.com\/v5\/task\/browse_(start|end)\.json url script-request-body https://raw.githubusercontent.com/Sunert/Scripts/master/Task/youth_gain.js
 
 #中青获取看看赚
