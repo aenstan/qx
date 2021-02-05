@@ -3,8 +3,6 @@
 #app
 https?:\/\/(c\.tieba\.baidu\.com|180\.97\.\d+\.\d+)\/c\/s\/login url script-request-header https://raw.githubusercontent.com/NobyDa/Script/master/BDTieBa-DailyBonus/TieBa.js
 
-#网页
-^https?:\/\/tieba\.baidu\.com\/?.? url script-request-header https://raw.githubusercontent.com/chavyleung/scripts/master/tieba/tieba.cookie.js
 
 
-hostname= c.tieba.baidu.com, tieba.baidu.com
+hostname= c.tieba.baidu.com
