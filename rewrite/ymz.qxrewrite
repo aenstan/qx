@@ -1,0 +1,9 @@
+#羊毛赚 
+#使用方法:
+#首次运行脚本，会提示获取body
+#进入看广告任务，在任务界面停留三分钟，倒计时结束提示获取广告body成功
+#进入看视频任务，观看玩一组视频，共五个左右，结束提示获取视频body成功
+
+ ^http://ymz.iphonezhuan.com/addaction url script-request-body https://raw.githubusercontent.com/age174/-/main/ymz.js
+ 
+ hostname = ymz.iphonezhuan.com
