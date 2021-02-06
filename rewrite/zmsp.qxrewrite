@@ -1,0 +1,7 @@
+#芝麻视频 
+#首次运行脚本，会提示获取body
+#点击夺宝获取body
+
+^https://api.sxsjyzm.com/api2/loot/index url script-request-body https://raw.githubusercontent.com/age174/-/main/zmsp.js
+ 
+hostname = api.sxsjyzm.com
