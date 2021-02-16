@@ -1,5 +1,5 @@
 #githubAC获取body
 
-https:\/\/github\.com\/* url script-request-body https://raw.githubusercontent.com/ziye12/JavaScript/main/Task/githubAC.js 
+https:\/\/github\.com\/* url script-request-body https://raw.githubusercontent.com/ziye66666/JavaScript/main/Task/githubAC.js 
 
 hostname= github.com
