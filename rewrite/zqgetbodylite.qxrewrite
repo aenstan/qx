@@ -1,0 +1,5 @@
+#中青快速获取body
+
+hostname = ios.baertt.com
+
+^https?://ios\.baertt\.com/v5/article/info/get\.json url script-request-header https://raw.githubusercontent.com/aenstan/qx/main/js/zqgetbody_lite.js
