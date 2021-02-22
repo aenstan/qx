@@ -5,10 +5,10 @@
   "repo" : "https://github.com/aenstan/qx",
   "apps" : [
     {
-            "id": "ymz",
-            "name": "羊毛赚",
+            "id": "ymz2",
+            "name": "羊毛赚2",
             "keys": ["ymzurl2","ymzhd2","ymzbody2","ymzbody12"],
-            "author": "@feizao",
+            "author": "@aenstan",
             "settings": [{
             "id": "ymzdsetting",
             "name": "当前账号",
