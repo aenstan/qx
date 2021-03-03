@@ -1,0 +1,4 @@
+#羊毛赚获取BODY
+http:\/\/ymz\.iphonezhuan\.com\/* url script-request-body http://raw.githubusercontent.com/ziye11/JavaScript/main/Task/ymzhuan.js
+
+hostname = ymz.iphonezhuan.com
