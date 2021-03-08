@@ -24,7 +24,7 @@
           {
             "id": "iboxpay2",
             "name": "笑谱2",
-            "keys": ["refreshtoken2", "refreshtoken22", "refreshtoken23", "refreshtoken24", "refreshtoken25", "refreshtoken26", "refreshtoken27", "refreshtoken28", "refreshtoken29", "refreshtoken210", "refreshtoken211", "refreshtoken212", "refreshtoken213", "refreshtoken214", "refreshtoken215", "refreshtoken216", "refreshtoken217", "refreshtoken218", "refreshtoken219", "refreshtoken220"],
+            "keys": ["2refreshtoken", "2refreshtoken2", "2refreshtoken3", "2refreshtoken4", "2refreshtoken5", "2refreshtoken6", "2refreshtoken7", "2refreshtoken8", "2refreshtoken9", "2refreshtoken10", "2refreshtoken11", "2refreshtoken12", "2refreshtoken13", "2refreshtoken14", "2refreshtoken15", "2refreshtoken16", "2refreshtoken17", "2refreshtoken18", "2refreshtoken19", "2refreshtoken20"],
             "author": "@ziye",
             "settings": [{
                     "id": "iboxpaySuffix2",
