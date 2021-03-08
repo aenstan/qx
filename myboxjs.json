@@ -25,16 +25,15 @@
             "id": "iboxpay2",
             "name": "笑谱2",
             "keys": ["2refreshtoken", "2refreshtoken2", "2refreshtoken3", "2refreshtoken4", "2refreshtoken5", "2refreshtoken6", "2refreshtoken7", "2refreshtoken8", "2refreshtoken9", "2refreshtoken10", "2refreshtoken11", "2refreshtoken12", "2refreshtoken13", "2refreshtoken14", "2refreshtoken15", "2refreshtoken16", "2refreshtoken17", "2refreshtoken18", "2refreshtoken19", "2refreshtoken20"],
-            "author": "@ziye",
             "settings": [{
-                    "id": "iboxpaySuffix2",
+                    "id": "iboxpaySuffix",
                     "name": "当前账号",
                     "val": "1",
                     "type": "number",
                     "desc": "当前抓取ck记录的账号序号，如：1、2、4、"
                 },
                 {
-                    "id": "iboxpayCount2",
+                    "id": "iboxpayCount",
                     "name": "账号个数",
                     "val": "1",
                     "type": "number",
