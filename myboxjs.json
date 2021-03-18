@@ -24,7 +24,7 @@
  {
             "id": "ygkc",
             "name": "阳光矿场",
-            "keys": ["ygkcurl", "ygkchd"],
+            "keys": ["ygkcurl", "ygkchd", "ygkcurl2", "ygkchd2","ygkcurl3", "ygkchd3", "ygkcurl4", "ygkchd4"],
             "author": "@feizao",
             "settings": [{
             "id": "ygkcsetting",
