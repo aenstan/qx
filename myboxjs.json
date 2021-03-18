@@ -21,54 +21,25 @@
 		"icons":["https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txzxg.png","https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txzxg.png"
 		]
     },
-          {
-            "id": "iboxpay2",
-            "name": "笑谱2",
-            "keys": ["2refreshtoken", "2refreshtoken2", "2refreshtoken3", "2refreshtoken4", "2refreshtoken5", "2refreshtoken6", "2refreshtoken7", "2refreshtoken8", "2refreshtoken9", "2refreshtoken10", "2refreshtoken11", "2refreshtoken12", "2refreshtoken13", "2refreshtoken14", "2refreshtoken15", "2refreshtoken16", "2refreshtoken17", "2refreshtoken18", "2refreshtoken19", "2refreshtoken20"],
+ {
+            "id": "ygkc",
+            "name": "阳光矿场",
+            "keys": ["ygkcurl", "ygkchd"],
+            "author": "@feizao",
             "settings": [{
-                    "id": "iboxpaySuffix",
-                    "name": "当前账号",
-                    "val": "1",
-                    "type": "number",
-                    "desc": "当前抓取ck记录的账号序号，如：1、2、4、"
-                },
-                {
-                    "id": "iboxpayCount",
-                    "name": "账号个数",
-                    "val": "1",
-                    "type": "number",
-                    "desc": "指定任务最多跑几个账号，根据抓取的账号数据个数来设值"
-                },
-                {
-                    "id": "iboxpayLIVE2",
-                    "name": "任务控制",
-                    "val": "0",
-                    "type": "number",
-                    "desc": "0开启视频，关闭直播，1开启直播，开启视频，2开启直播，关闭视频，666开启直播，开启视频，开启新人180秒任务，888开启直播，开启视频，开启新人2天双倍 "
-                },
-                {
-                    "id": "iboxpayCASH2",
-                    "name": "提现标准",
-                    "val": "15",
-                    "type": "number",
-                    "desc": "0不提现，可设置 0 1 15 30 100  "
-                },
-                {
-                    "id": "iboxpayphone2",
-                    "name": "手机号",
-                    "val": "0",
-                    "type": "number",
-                    "desc": "请输入完整手机号"
-                },
-                {
-                    "id": "iboxpaysms2",
-                    "name": "验证码",
-                    "val": "0",
-                    "type": "number",
-                    "desc": "输入短信验证码，默认为0，不启动获取token功能"
-                }
-            ],
-            "icons": ["https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/iboxpay.png", "https://raw.githubusercontent.com/6Svip120apk69/gitee_q8qsTAUA_cThxc1RBVUE/main/Task/iboxpay.png"],
-            "script": "iboxpay2.js"
-        }]
+            "id": "ygkcsetting",
+            "name": "当前账号",
+            "val": "1",
+            "type": "number",
+            "desc": "当前账号对应"
+    },
+    {
+            "id": "ygkccount",
+            "name": "账号个数",
+            "val": "1",
+            "type": "number",
+            "desc": "需要几个账号，数字为几"
+    }],
+            "script": "ygkc.js"
+    }]
 }
