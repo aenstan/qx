@@ -27,7 +27,7 @@
             "keys": ["ygkcurl", "ygkchd", "ygkcurl2", "ygkchd2","ygkcurl3", "ygkchd3", "ygkcurl4", "ygkchd4"],
             "author": "@feizao",
             "settings": [{
-            "id": "ygkcsetting",
+            "id": "ygkcstatus",
             "name": "当前账号",
             "val": "1",
             "type": "number",
