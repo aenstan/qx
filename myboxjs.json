@@ -24,7 +24,7 @@
  {
             "id": "ygkc",
             "name": "阳光矿场",
-            "keys": ["ygkcurl", "ygkchd", "ygkcurl2", "ygkchd2","ygkcurl3", "ygkchd3", "ygkcurl4", "ygkchd4"],
+            "keys": ["ygkcurl", "ygkchd"],
             "author": "@feizao",
             "settings": [{
             "id": "ygkcstatus",
@@ -41,5 +41,68 @@
             "desc": "需要几个账号，数字为几"
     }],
             "script": "ygkc.js"
+    },
+  {
+            "id": "ygkc2",
+            "name": "阳光矿场2",
+            "keys": ["ygkcurl2", "ygkchd2"],
+            "author": "@feizao",
+            "settings": [{
+            "id": "ygkcstatus",
+            "name": "当前账号",
+            "val": "1",
+            "type": "number",
+            "desc": "当前账号对应"
+    },
+    {
+            "id": "ygkccount",
+            "name": "账号个数",
+            "val": "1",
+            "type": "number",
+            "desc": "需要几个账号，数字为几"
+    }],
+            "script": "ygkc2.js"
+    },
+{
+            "id": "ygkc3",
+            "name": "阳光矿场3",
+            "keys": ["ygkcurl3", "ygkchd3"],
+            "author": "@feizao",
+            "settings": [{
+            "id": "ygkcstatus",
+            "name": "当前账号",
+            "val": "1",
+            "type": "number",
+            "desc": "当前账号对应"
+    },
+    {
+            "id": "ygkccount",
+            "name": "账号个数",
+            "val": "1",
+            "type": "number",
+            "desc": "需要几个账号，数字为几"
+    }],
+            "script": "ygkc3.js"
+    },
+{
+            "id": "ygkc4",
+            "name": "阳光矿场4",
+            "keys": ["ygkcurl4", "ygkchd4"],
+            "author": "@feizao",
+            "settings": [{
+            "id": "ygkcstatus",
+            "name": "当前账号",
+            "val": "1",
+            "type": "number",
+            "desc": "当前账号对应"
+    },
+    {
+            "id": "ygkccount",
+            "name": "账号个数",
+            "val": "1",
+            "type": "number",
+            "desc": "需要几个账号，数字为几"
+    }],
+            "script": "ygkc4.js"
     }]
 }
