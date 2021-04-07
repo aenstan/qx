@@ -47,8 +47,7 @@
             "type": "number",
             "desc": "填写0为关闭,1为开启,默认关闭,需要开启的建议先做完日常任务再开始"
     }],
-            "repo": "https://github.com/age174/-/blob/main/vsh.js",
             "icons": ["https://ae01.alicdn.com/kf/Uf0da879c7acd4c7bad91f0e5a97667e1O.jpg", "https://ae01.alicdn.com/kf/Uf0da879c7acd4c7bad91f0e5a97667e1O.jpg"],
-            "script": "https://raw.githubusercontent.com/age174/-/main/vsh.js"
+            "script": "vshown.js"
     }]
 }
