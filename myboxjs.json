@@ -21,75 +21,11 @@
 		"icons":["https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txzxg.png","https://raw.githubusercontent.com/CenBoMin/GithubSync/main/TXSTOCK/txzxg.png"
 		]
     },
- {
-            "id": "ygkc",
-            "name": "阳光矿场",
-            "keys": ["ygkcurl", "ygkchd"],
-            "author": "@feizao",
-            "settings": [{
-            "id": "ygkcstatus",
-            "name": "当前账号",
-            "val": "1",
-            "type": "number",
-            "desc": "当前账号对应"
-    },
     {
-            "id": "ygkccount",
-            "name": "账号个数",
-            "val": "1",
-            "type": "number",
-            "desc": "需要几个账号，数字为几"
-    }],
-            "script": "ygkc.js"
-    },
-  {
-            "id": "ygkc2",
-            "name": "阳光矿场2",
-            "keys": ["ygkcurl2", "ygkchd2"],
-            "author": "@feizao",
-            "settings": [{
-            "id": "ygkcstatus",
-            "name": "当前账号",
-            "val": "1",
-            "type": "number",
-            "desc": "当前账号对应"
-    },
-    {
-            "id": "ygkccount",
-            "name": "账号个数",
-            "val": "1",
-            "type": "number",
-            "desc": "需要几个账号，数字为几"
-    }],
-            "script": "ygkc2.js"
-    },
-{
-            "id": "ygkc3",
-            "name": "阳光矿场3",
-            "keys": ["ygkcurl3", "ygkchd3"],
-            "author": "@feizao",
-            "settings": [{
-            "id": "ygkcstatus",
-            "name": "当前账号",
-            "val": "1",
-            "type": "number",
-            "desc": "当前账号对应"
-    },
-    {
-            "id": "ygkccount",
-            "name": "账号个数",
-            "val": "1",
-            "type": "number",
-            "desc": "需要几个账号，数字为几"
-    }],
-            "script": "ygkc3.js"
-    },
-    {
-            "id": "vsh",
-            "name": "V生活",
+            "id": "vshown",
+            "name": "V生活own",
             "keys": ["vshurl", "vshhd", "vshbody", "vsh1body","vsh2body", "vshdspbody","vshspbody", "vshqdbody","vshurl2", "vshhd2", "vshbody2", "vsh1body2","vsh2body2", "vshdspbody2","vshspbody2", "vshqdbody2","vshurl3", "vshhd3", "vshbody3", "vsh1body3","vsh2body3", "vshdspbody3","vshspbody3", "vshqdbody3","vshurl4", "vshhd4", "vshbody4", "vsh1body4","vsh2body4", "vshdspbody4","vshspbody4", "vshqdbody4"
 ],
-            "author": "@feizao",
             "settings": [{
             "id": "vshstatus",
             "name": "当前账号",
