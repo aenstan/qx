@@ -22,19 +22,19 @@
 		]
     },
     {
-            "id": "smz",
+            "id": "ygkc",
             "name": "smz",
             "keys": ["ygkcurl", "ygkchd", "ygkcurl2", "ygkchd2","ygkcurl3", "ygkchd3","ygkcurl4", "ygkchd4"
 ],
             "settings": [{
-            "id": "smzstatus",
+            "id": "ygkcstatus",
             "name": "当前账号",
             "val": "1",
             "type": "number",
             "desc": "当前账号对应"
     },
     {
-            "id": "smzcount",
+            "id": "ygkccount",
             "name": "账号个数",
             "val": "1",
             "type": "number",
