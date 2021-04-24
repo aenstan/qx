@@ -24,7 +24,7 @@
     {
             "id": "cgwz",
             "name": "cgwz",
-            "keys": ["cgwzcurl", "cgwzhd", "cgwzggurl", "cgwzcurl2", "cgwzhd2", "cgwzggurl2", "cgwzcurl3", "cgwzhd3", "cgwzggurl3", "cgwzcurl4", "cgwzhd4", "cgwzggurl4"],
+            "keys": ["cgwzurl", "cgwzhd", "cgwzggurl", "cgwzurl2", "cgwzhd2", "cgwzggurl2", "cgwzurl3", "cgwzhd3", "cgwzggurl3", "cgwzurl4", "cgwzhd4", "cgwzggurl4"],
             "settings": [{
             "id": "cgwzstatus",
             "name": "当前账号",
