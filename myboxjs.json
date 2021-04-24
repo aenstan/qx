@@ -22,25 +22,24 @@
 		]
     },
     {
-            "id": "ygkc",
-            "name": "smz",
-            "keys": ["ygkcurl", "ygkchd", "ygkcurl2", "ygkchd2","ygkcurl3", "ygkchd3","ygkcurl4", "ygkchd4"
-],
+            "id": "cgwz",
+            "name": "cgwz",
+            "keys": ["cgwzcurl", "cgwzhd", "cgwzggurl", "cgwzcurl2", "cgwzhd2", "cgwzggurl2", "cgwzcurl3", "cgwzhd3", "cgwzggurl3", "cgwzcurl4", "cgwzhd4", "cgwzggurl4"],
             "settings": [{
-            "id": "ygkcstatus",
+            "id": "cgwzstatus",
             "name": "当前账号",
             "val": "1",
             "type": "number",
             "desc": "当前账号对应"
     },
     {
-            "id": "ygkccount",
+            "id": "cgwzcount",
             "name": "账号个数",
             "val": "1",
             "type": "number",
             "desc": "需要几个账号，数字为几"
     }],
-            "script": "smz.js"
+            "script": "cgwz.js"
     },
   {
             "id": "vshown",
