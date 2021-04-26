@@ -22,24 +22,24 @@
 		]
     },
     {
-            "id": "cgwz",
-            "name": "cgwz",
-            "keys": ["cgwzurl", "cgwzhd", "cgwzggurl", "cgwzurl2", "cgwzhd2", "cgwzggurl2", "cgwzurl3", "cgwzhd3", "cgwzggurl3", "cgwzurl4", "cgwzhd4", "cgwzggurl4"],
+            "id": "yckc",
+            "name": "快乐猜歌",
+            "keys": ["ygkcurl", "ygkchd", "ygkcurl2", "ygkchd2","ygkcurl3", "ygkchd3","ygkcurl4", "ygkchd4"],
             "settings": [{
-            "id": "cgwzstatus",
+            "id": "ygkcstatus",
             "name": "当前账号",
             "val": "1",
             "type": "number",
             "desc": "当前账号对应"
     },
     {
-            "id": "cgwzcount",
+            "id": "yckccount",
             "name": "账号个数",
             "val": "1",
             "type": "number",
             "desc": "需要几个账号，数字为几"
     }],
-            "script": "cgwz.js"
+            "script": "klcg.js"
     },
   {
             "id": "vshown",
