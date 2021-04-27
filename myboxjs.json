@@ -42,32 +42,24 @@
             "script": "klcg.js"
     },
   {
-            "id": "vshown",
-            "name": "V生活own",
-            "keys": ["vshurl", "vshhd", "vshbody", "vsh1body","vsh2body", "vshdspbody","vshspbody", "vshqdbody","vshurl2", "vshhd2", "vshbody2", "vsh1body2","vsh2body2", "vshdspbody2","vshspbody2", "vshqdbody2","vshurl3", "vshhd3", "vshbody3", "vsh1body3","vsh2body3", "vshdspbody3","vshspbody3", "vshqdbody3","vshurl4", "vshhd4", "vshbody4", "vsh1body4","vsh2body4", "vshdspbody4","vshspbody4", "vshqdbody4"
+            "id": "xfyjc",
+            "name": "养鸡场",
+            "keys": ["xfyjchd", "xfyjchd2", "xfyjchd3", "xfyjchd4" 
 ],
             "settings": [{
-            "id": "vshstatus",
+            "id": "xfyjcstatus",
             "name": "当前账号",
             "val": "1",
             "type": "number",
             "desc": "当前账号对应"
     },
     {
-            "id": "vshcount",
+            "id": "xfyjccount",
             "name": "账号个数",
             "val": "4",
             "type": "number",
             "desc": "需要几个账号，数字为几"
-    },
-    {
-            "id": "vshsp",
-            "name": "短视频开关",
-            "val": "0",
-            "type": "number",
-            "desc": "填写0为关闭,1为开启,默认关闭,需要开启的建议先做完日常任务再开始"
     }],
-            "icons": ["https://ae01.alicdn.com/kf/Uf0da879c7acd4c7bad91f0e5a97667e1O.jpg", "https://ae01.alicdn.com/kf/Uf0da879c7acd4c7bad91f0e5a97667e1O.jpg"],
-            "script": "vshown.js"
+           "script": "xfyjc.js"
     }]
 }
