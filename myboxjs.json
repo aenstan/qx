@@ -41,6 +41,26 @@
     }],
             "script": "klcg.js"
     },
+    {
+            "id": "qhydown",
+            "name": "千禾own",
+            "keys": ["qhydurl", "qhydhd", "qhydlqhd", "qhydbody", "qhydurl2", "qhydhd2", "qhydlqhd2", "qhydbody2", "qhydurl3", "qhydhd3", "qhydlqhd3", "qhydbody3", "qhydurl4", "qhydhd4", "qhydlqhd4", "qhydbody4",],
+            "settings": [{
+            "id": "qhydstatus",
+            "name": "当前账号",
+            "val": "1",
+            "type": "number",
+            "desc": "当前账号对应"
+    },
+    {
+            "id": "qhydcount",
+            "name": "账号个数",
+            "val": "1",
+            "type": "number",
+            "desc": "需要几个账号，数字为几"
+    }],
+            "script": "qhyd.js"
+    },	  
   {
             "id": "yjc",
             "name": "养鸡场",
