@@ -44,6 +44,7 @@
             "type": "number",
             "desc": "需要几个账号，数字为几"
     }],
+	    "script": "kxhy.js"
     },	  
 	  {
 		"id": "txstockapp2",
