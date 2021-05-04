@@ -8,7 +8,6 @@
             "id": "szown",
             "name": "闪挣",
             "keys": ["szurl", "szhd" ,"szurl2", "szhd2","szurl3", "szhd3","szurl4", "szhd4"],
-            "author": "@feizao",
             "settings": [{
             "id": "szsetting",
             "name": "当前账号",
@@ -29,7 +28,7 @@
 {
             "id": "kxhyown",
             "name": "开心花园视频",
-            "keys": ["adheader", "adheader2"],
+            "keys": ["adheader", "adbody", "adheader2", "adbody2"],
             "settings": [{
             "id": "szsetting",
             "name": "当前账号",
