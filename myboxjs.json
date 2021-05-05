@@ -44,6 +44,25 @@
             "desc": "需要几个账号，数字为几"
     }],
 	    "script": "kxhy.js"
+{
+            "id": "ryhyown",
+            "name": "如意花园视频",
+            "keys": ["ryhyadheader", "ryhyadbody", "ryhyadheader2", "ryhyadbody2"，"ryhyadheader3", "ryhyadbody3"，"ryhyadheader4", "ryhyadbody4"],
+            "settings": [{
+            "id": "szsetting",
+            "name": "当前账号",
+            "val": "1",
+            "type": "number",
+            "desc": "当前账号对应"
+    },
+    {
+            "id": "ryhycount",
+            "name": "账号个数",
+            "val": "1",
+            "type": "number",
+            "desc": "需要几个账号，数字为几"
+    }],
+	    "script": "ryhy.js"	
     },	  
 	  {
 		"id": "txstockapp2",
