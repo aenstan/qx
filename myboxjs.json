@@ -48,7 +48,7 @@
 {
             "id": "ryhyown",
             "name": "如意花园视频",
-            "keys": ["ryhyadheader", "ryhyadbody", "ryhyadheader2", "ryhyadbody2"，"ryhyadheader3", "ryhyadbody3"，"ryhyadheader4", "ryhyadbody4"],
+            "keys": ["ryhyadheader", "ryhyadbody", "ryhyadheader2", "ryhyadbody2", "ryhyadheader3", "ryhyadbody3", "ryhyadheader4", "ryhyadbody4"],
             "settings": [{
             "id": "szsetting",
             "name": "当前账号",
