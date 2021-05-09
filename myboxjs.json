@@ -7,7 +7,7 @@
 {
             "id": "szown",
             "name": "闪挣",
-            "keys": ["szurl", "szhd" ,"szurl2", "szhd2","szurl3", "szhd3","szurl4", "szhd4"],
+            "keys": ["szurl", "szhd"],
             "settings": [{
             "id": "szsetting",
             "name": "当前账号",
@@ -25,6 +25,27 @@
             "icons": ["https://ae01.alicdn.com/kf/U0eeed99dbe9a4cf99b73aaed7902a3a9z.jpg", "https://ae01.alicdn.com/kf/U0eeed99dbe9a4cf99b73aaed7902a3a9z.jpg"],
             "script": "https://raw.githubusercontent.com/age174/-/main/sz.js"
     },
+{
+            "id": "szown3",
+            "name": "闪挣3",
+            "keys": ["szurl3", "szhd3"],
+            "settings": [{
+            "id": "szsetting",
+            "name": "当前账号",
+            "val": "1",
+            "type": "number",
+            "desc": "当前账号对应"
+    },
+    {
+            "id": "szcount",
+            "name": "账号个数",
+            "val": "1",
+            "type": "number",
+            "desc": "需要几个账号，数字为几"
+    }],
+            "icons": ["https://ae01.alicdn.com/kf/U0eeed99dbe9a4cf99b73aaed7902a3a9z.jpg", "https://ae01.alicdn.com/kf/U0eeed99dbe9a4cf99b73aaed7902a3a9z.jpg"],
+            "script": "sz3.js"
+    },	  
 {
             "id": "kxhyown",
             "name": "开心花园视频",
