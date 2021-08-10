@@ -89,7 +89,7 @@
 	  {
 		"id": "txstockapp2",
 		"name": "腾旭自选股2",
-		"keys": ["signheader2", "signkey2", "taskheader2", "taskkey2", "userheader2", "userkey2", "wxtaskkey2","cash2"],
+		"keys": ["signheader2", "signkey2", "taskheader2", "taskkey2", "userheader2", "userkey2", "wxtaskkey2","cashheader2","cash2"],
 		"settings": [
 			{
 				"id": "cash2",
